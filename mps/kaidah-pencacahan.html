@@ -110,16 +110,6 @@
   .hero p{max-width:640px;margin:16px auto 0;color:var(--ink-600);font-size:15px;line-height:1.75;}
   .hero .motif-divider{max-width:180px;margin:24px auto 0;}
 
-  .legend{max-width:920px;margin:28px auto 0;padding:0 24px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-  .legend .item{
-    display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink-600);
-    background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;
-  }
-  .legend .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
-  .legend .dot.beginner{background:var(--green-600);}
-  .legend .dot.intermediate{background:var(--amber-600);}
-  .legend .dot.expert{background:var(--maroon-600);}
-
   .container{max-width:1040px;margin:0 auto;padding:32px 24px 80px;}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
 
@@ -151,15 +141,8 @@
   .levels{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1;}
   .level-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;border:1px solid var(--sand-200);transition:background .15s, border-color .15s;}
   .level-row:hover{background:var(--sand-50);}
-  .level-row .tag{width:8px;height:34px;border-radius:5px;flex-shrink:0;}
-  .level-row.beginner .tag{background:var(--green-600);}
-  .level-row.intermediate .tag{background:var(--amber-600);}
-  .level-row.expert .tag{background:var(--maroon-600);}
   .level-row .lbl{flex:1;min-width:0;}
   .level-row .lbl .name{font-weight:700;font-size:13.5px;color:var(--ink-900);}
-  .level-row .lbl .name.beginner{color:var(--green-600);}
-  .level-row .lbl .name.intermediate{color:var(--amber-600);}
-  .level-row .lbl .name.expert{color:var(--maroon-600);}
 
   .dl-btn{
     display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:700;
@@ -167,12 +150,8 @@
   }
   .dl-btn svg{width:13px;height:13px;}
   .dl-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm);}
-  .level-row.beginner .dl-btn{border-color:var(--green-600);color:var(--green-600);}
-  .level-row.beginner .dl-btn:hover{background:var(--green-600);color:#fff;}
-  .level-row.intermediate .dl-btn{border-color:var(--amber-600);color:var(--amber-600);}
-  .level-row.intermediate .dl-btn:hover{background:var(--amber-600);color:#fff;}
-  .level-row.expert .dl-btn{border-color:var(--maroon-600);color:var(--maroon-600);}
-  .level-row.expert .dl-btn:hover{background:var(--maroon-600);color:#fff;}
+  .dl-btn{border-color:var(--maroon-600);color:var(--maroon-600);}
+  .dl-btn:hover{background:var(--maroon-600);color:#fff;}
 
   @media (max-width:480px){
     .level-row{flex-wrap:wrap;gap:8px;padding:10px;}
@@ -220,14 +199,8 @@
   <div class="hero">
     <span class="eyebrow">Kurikulum Khas Berbasis TKA & UTBK</span>
     <h1>Mathematics Practice Sheet<span class="accent">Kaidah Pencacahan</span></h1>
-    <p>Enam paket latihan mandiri untuk topik <b>Kaidah Pencacahan</b>, masing-masing tersedia dalam tiga tingkat kesulitan: <b>Beginner</b>, <b>Intermediate</b>, dan <b>Expert</b>.</p>
+    <p>Enam paket latihan mandiri untuk topik <b>Kaidah Pencacahan</b>. Setiap berkas berisi 30 soal: 10 <b>Beginner</b>, 10 <b>Intermediate</b>, dan 10 <b>Expert</b>.</p>
     <div class="motif-divider"></div>
-  </div>
-
-  <div class="legend">
-    <div class="item"><span class="dot beginner"></span>Beginner</div>
-    <div class="item"><span class="dot intermediate"></span>Intermediate</div>
-    <div class="item"><span class="dot expert"></span>Expert</div>
   </div>
 
   <div class="container">
@@ -247,12 +220,6 @@
 <script>
   const DOWN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M6 10l6 5 6-5"/><path d="M4 19h16"/></svg>`;
 
-  const LEVELS = [
-    {key:"beginner", name:"Beginner"},
-    {key:"intermediate", name:"Intermediate"},
-    {key:"expert", name:"Expert"},
-  ];
-
   const TOPIC = "Kaidah Pencacahan";
 
   const MPS = [
@@ -270,20 +237,10 @@
 
   const grid = document.getElementById('grid');
 
-  function levelRow(level){
-    return `
-      <div class="level-row ${level.key}">
-        <div class="tag"></div>
-        <div class="lbl">
-          <div class="name ${level.key}">${level.name}</div>
-        </div>
-        <button class="dl-btn" data-file="${TOPIC} · ${level.name}">
-          ${DOWN_ICON}<span>PDF</span>
-        </button>
-      </div>`;
-  }
-
   function cardHtml(mps){
+    const btn = mps.url
+      ? `<a class="dl-btn" href="${mps.url}" target="_blank" rel="noopener">${DOWN_ICON}<span>PDF</span></a>`
+      : `<button class="dl-btn" data-file="${mps.code}">${DOWN_ICON}<span>PDF</span></button>`;
     return `
       <div class="card">
         <div class="card-head">
@@ -294,7 +251,10 @@
           </div>
         </div>
         <div class="levels">
-          ${LEVELS.map(l=>levelRow(l)).join('')}
+          <div class="level-row">
+            <div class="lbl"><div class="name">Unduh Berkas</div></div>
+            ${btn}
+          </div>
         </div>
       </div>`;
   }
