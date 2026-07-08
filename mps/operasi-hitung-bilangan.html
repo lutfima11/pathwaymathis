@@ -223,16 +223,12 @@
   const TOPIC = "Operasi Hitung Bilangan";
 
   const MPS = [
-    ...Array.from({length:5}, (_,i)=>({
-      code:`MPS ${String(i+1).padStart(2,'0')}`,
-      sub:`Paket Latihan Mandiri ${i+1}`,
-      badge:String(i+1).padStart(2,'0'),
-    })),
-    {
-      code:`Asesmen Sumatif`,
-      sub:`Evaluasi Akhir Materi`,
-      badge:`AS`,
-    },
+    {code:"MPS 01", sub:"Paket Latihan Mandiri 1", badge:"01", url:"https://drive.google.com/file/d/1fxZCTiHqheDduPjY3w2rPkpOosmJCzBQ/view?usp=drive_link"},
+    {code:"MPS 02", sub:"Paket Latihan Mandiri 2", badge:"02", url:"https://drive.google.com/file/d/1N2kRzA_lyjAx8djEJ7qKidYlnld1lDO-/view?usp=drive_link"},
+    {code:"MPS 03", sub:"Paket Latihan Mandiri 3", badge:"03", url:"https://drive.google.com/file/d/1eeMyBVPq0juQ6GnqRw3UprF_pc5tN2Rr/view?usp=drive_link"},
+    {code:"MPS 04", sub:"Paket Latihan Mandiri 4", badge:"04", url:"https://drive.google.com/file/d/1OCAbthaE0few4z6Pb0fNDaiJEmYjukit/view?usp=drive_link"},
+    {code:"MPS 05", sub:"Paket Latihan Mandiri 5", badge:"05", url:"https://drive.google.com/file/d/1TU-Xmb406rRmrY2mlYWSxjbCC8weq1c-/view?usp=drive_link"},
+    {code:"Asesmen Sumatif", sub:"Evaluasi Akhir Materi", badge:"AS"},
   ];
 
   const grid = document.getElementById('grid');

@@ -223,16 +223,12 @@
   const TOPIC = "Aljabar Dasar";
 
   const MPS = [
-    ...Array.from({length:5}, (_,i)=>({
-      code:`MPS ${String(i+1).padStart(2,'0')}`,
-      sub:`Paket Latihan Mandiri ${i+1}`,
-      badge:String(i+1).padStart(2,'0'),
-    })),
-    {
-      code:`Asesmen Sumatif`,
-      sub:`Evaluasi Akhir Materi`,
-      badge:`AS`,
-    },
+    {code:"MPS 01", sub:"Paket Latihan Mandiri 1", badge:"01", url:"https://drive.google.com/file/d/1dRiBm-pLt-0Tppt-VDsscEFbpSqWbQjV/view?usp=drive_link"},
+    {code:"MPS 02", sub:"Paket Latihan Mandiri 2", badge:"02", url:"https://drive.google.com/file/d/14gmV6eyFyvDhQuUm0GfSbfKR9CtVWo-S/view?usp=drive_link"},
+    {code:"MPS 03", sub:"Paket Latihan Mandiri 3", badge:"03", url:"https://drive.google.com/file/d/1RJUols5Qr9JyJS7j9Ibw4V418C7OZx36/view?usp=drive_link"},
+    {code:"MPS 04", sub:"Paket Latihan Mandiri 4", badge:"04", url:"https://drive.google.com/file/d/1PpLdtakjozq3SSObFKo5MbJk1Zy2ruR6/view?usp=drive_link"},
+    {code:"MPS 05", sub:"Paket Latihan Mandiri 5", badge:"05", url:"https://drive.google.com/file/d/1IP_lPxHGPCC0fXASHU8YddhLQ-SfaecZ/view?usp=drive_link"},
+    {code:"Asesmen Sumatif", sub:"Evaluasi Akhir Materi", badge:"AS"},
   ];
 
   const grid = document.getElementById('grid');

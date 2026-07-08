@@ -223,16 +223,12 @@
   const TOPIC = "Pangkat &amp; Akar";
 
   const MPS = [
-    ...Array.from({length:5}, (_,i)=>({
-      code:`MPS ${String(i+1).padStart(2,'0')}`,
-      sub:`Paket Latihan Mandiri ${i+1}`,
-      badge:String(i+1).padStart(2,'0'),
-    })),
-    {
-      code:`Asesmen Sumatif`,
-      sub:`Evaluasi Akhir Materi`,
-      badge:`AS`,
-    },
+    {code:"MPS 01", sub:"Paket Latihan Mandiri 1", badge:"01", url:"https://drive.google.com/file/d/1cKrPxl9FgDJzn8glEVXbdbdwvXuiBM4A/view?usp=drive_link"},
+    {code:"MPS 02", sub:"Paket Latihan Mandiri 2", badge:"02", url:"https://drive.google.com/file/d/1fxXIrlcDcdS61tHTS7o5i7-s7SVpnxQW/view?usp=drive_link"},
+    {code:"MPS 03", sub:"Paket Latihan Mandiri 3", badge:"03", url:"https://drive.google.com/file/d/13bAAOQEZsFPKyvaxoQvvxqHQksi9ZzNg/view?usp=drive_link"},
+    {code:"MPS 04", sub:"Paket Latihan Mandiri 4", badge:"04", url:"https://drive.google.com/file/d/1OZ9FJPa-p0H87ywQy1m1BNLguj4UrGId/view?usp=drive_link"},
+    {code:"MPS 05", sub:"Paket Latihan Mandiri 5", badge:"05", url:"https://drive.google.com/file/d/11TnQL5saPzzeNqQKwxW-Kok2OmvLvdhD/view?usp=drive_link"},
+    {code:"Asesmen Sumatif", sub:"Evaluasi Akhir Materi", badge:"AS"},
   ];
 
   const grid = document.getElementById('grid');
