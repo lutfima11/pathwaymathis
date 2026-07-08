@@ -266,7 +266,7 @@
   let toastTimer;
   grid.addEventListener('click', (e)=>{
     const btn = e.target.closest('.dl-btn');
-    if(!btn) return;
+    if(!btn || btn.tagName === 'A') return;
     toastText.textContent = `${btn.dataset.file} — berkas belum tersedia.`;
     toast.classList.add('show');
     clearTimeout(toastTimer);
